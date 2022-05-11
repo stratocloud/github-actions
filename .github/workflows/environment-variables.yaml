@@ -19,7 +19,7 @@ jobs:
         run: echo ${{ env.environment }}
 
   dev:
-    if: ${{ github.event_name == 'push' && github.ref_name == 'development' || github.event.inputs.environment == 'DEV' }}
+    if: ${{ github.event_name == 'push' && github.ref_name == 'develop' || github.event.inputs.environment == 'DEV' }}
     env:
       environment: DEV
     runs-on: ubuntu-latest
@@ -28,9 +28,9 @@ jobs:
         run: echo ${{ env.environment }}
 
   QA:
-    if: ${{ github.event_name == 'push' && github.ref_name == 'development' || github.event.inputs.environment == 'DEV' }}
+    if: ${{ github.event_name == 'push' && github.ref_name == 'develop' || github.event.inputs.environment == 'QA' }}
     env:
-      environment: DEV
+      environment: QA
     runs-on: ubuntu-latest
     steps:
       - name: Print value
